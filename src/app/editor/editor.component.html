@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #editorModal>
+    <div class="modal-dialog modal-dialog-centered">
+        <form [formGroup]="notesForm" (ngSubmit)="saveEditor()" class="w-100">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title  fs-5 cursor-pointer" id="exampleModalLabel" (click)="addTitle =!addTitle" *ngIf="!addTitle">Notes title</h1>
+                            <input type="text" *ngIf="addTitle" class="form-control" placeholder="Enter title" formControlName="title">
+
+                        
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Enter content" formControlName="content"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" type="button" (click)="closeEditor()">Close</button>
+                        <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
