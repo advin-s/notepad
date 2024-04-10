@@ -1,10 +1,24 @@
 <app-header></app-header>
 <div class="container my-4">
-<div class="row gy-4" *ngIf="!notesLoading">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let note of notes">
-        <div class="p-3 border rounded-3 bg-light">
+<div class="row gy-4" *ngIf="!notesLoading && notes.length != 0">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let note of notes; let i = index">
+        <div class="p-3 border rounded-3 bg-light position-relative">
             <h4>{{note.title}}</h4>
             <p class="text-dark">{{note.content}}</p>
+
+            <div class="dropdown position-absolute top-0 end-0 mt-2 me-2">
+                <button class="btn h-30px w-30px rounded-circle border-0 bg-secondary-subtle d-flex align-items-center justify-content-center p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
+                </button>
+                <ul class="dropdown-menu fs-12px border-0 shadow rounded-0">
+                    <li><a class="dropdown-item" [routerLink]="['/editor',i]">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -12,5 +26,8 @@
 <div class="spinner-border text-info" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
+</div>
+<div class="d-flex align-items-center justify-content-center" *ngIf="notes.length === 0" style="height: calc(100vh - 56px - 3rem);">
+   <h2>Please add a new note</h2>
 </div>
 </div>

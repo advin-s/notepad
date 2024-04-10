@@ -14,14 +14,6 @@ export class DashboardService implements OnInit {
   constructor(private dataService:DataService, private editorService:EditorService) {}
 
   ngOnInit(): void {
-  this.notes = this.editorService.getNotes() 
-  this.editorService.updateNotes.subscribe(note => {
-
-    this.notes.push(...note)
-    this.notesUpdated.next(this.notes)
-    console.log(this.notes, '---------');
-    
-  })
   }
 
   getNotes(){

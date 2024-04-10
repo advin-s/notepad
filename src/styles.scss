@@ -9,3 +9,18 @@
 .cursor-pointer{
     cursor: pointer;
 }
+@for $i from 8 through 50 {
+    .fs-#{$i}px{
+        font-size: #{$i}px;
+    }
+    .h-#{$i}px{
+        height: #{$i}px;
+    }
+    .w-#{$i}px {
+        width: #{$i}px;
+    }
+}
+.no-after:after{
+    content: '';
+    display: none;
+}

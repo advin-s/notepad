@@ -14,6 +14,10 @@ const routes: Routes = [
     component:EditorComponent
   },
   {
+    path:'editor/:id',
+    component:EditorComponent
+  },
+  {
     path:'dashboard',
     component:DashboardComponent
   },
